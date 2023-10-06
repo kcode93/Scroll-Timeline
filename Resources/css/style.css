@@ -1,114 +1,145 @@
-:root{
-    --primary-color: #425b84;
-    --secondary-color: #5b7bb4;
-    --font-color: #fff;
-    --max-width: 1100px;
+:root {
+	--primary-color: #425b84;
+	--secondary-color: #5b7bb4;
+	--font-color: #fff;
+	--max-width: 1100px;
 }
 
-body{
-    font: normal 1rem/1.5 'Arial', sans-serif;
-    background: var(--primary-color);
-    color: var(--font-color) ;
-    /*No side scrollbar along the X axis*/
-    overflow-y: hidden;
-    padding-bottom: 3rem;
+body {
+	font: normal 1rem/1.5 "Arial", sans-serif;
+	background: var(--primary-color);
+	color: var(--font-color);
+	/*No side scrollbar along the X axis*/
+	overflow-y: hidden;
+	padding-bottom: 3rem;
 }
 
 /*main-header*/
-#main-header{
-    background: var(--secondary-color);
-    padding: 4rem 0;
+#main-header {
+	background: var(--secondary-color);
+	padding: 4rem 0;
 }
 
-.container{
-    max-width: var(--max-width);
-    margin: 0 auto;
-    text-align: center;
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	text-align: center;
 }
 
-.container h3{
-    font-size: 1.5rem;
+.container h3 {
+	font-size: 1.5rem;
 }
 
-h1{
-    font-size: 2.5rem;
-    font-weight: bold;
+h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
 }
 
 /*timeline*/
-#timeline ul{
-    background: var(--primary-color);
-    padding: 50px 0;
+#timeline ul {
+	background: var(--primary-color);
+	padding: 50px 0;
 }
 
-#timeline ul li div h3{
-    font-weight: bold;
+#timeline ul li div h3 {
+	font-weight: bold;
 }
 
 /*creates the line*/
 #timeline ul li {
-    list-style: none;
-    position: relative;
-    width: 6px;
-    margin: 0 auto;
-    padding-top: 50px;
-    background: #fff;
+	list-style: none;
+	position: relative;
+	width: 6px;
+	margin: 0 auto;
+	padding-top: 50px;
+	background: #fff;
 }
 
 /*Boxes*/
-#timeline ul li div{
-    position: relative;
-    bottom: 0;
-    width: 400px;
-    padding: 1rem;
-    background: var(--secondary-color);
-    transition: all 0.5s ease-in-out;
+#timeline ul li div {
+	position: relative;
+	bottom: 0;
+	width: 400px;
+	padding: 1rem;
+	background: var(--secondary-color);
+	transition: all 0.5s ease-in-out;
 }
 
 /*Right Boxes*/
 #timeline ul li:nth-child(odd) div {
-    left: 40px;
+	left: 40px;
 }
 
 /*Left Boxes*/
 #timeline ul li:nth-child(even) div {
-    left: -434px;
+	left: -434px;
 }
 
 /*Dots in timeline*/
-#timeline ul li::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 25px;
-    height: 25px;
-    background: var(--secondary-color);
-    transform: translateX(-50%);
-    border-radius: 50%;
-    transition: background 0.5s ease-in-out;
+#timeline ul li::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 25px;
+	height: 25px;
+	background: var(--secondary-color);
+	transform: translateX(-50%);
+	border-radius: 50%;
+	transition: background 0.5s ease-in-out;
 }
 
 /*Base Arrows*/
-#timeline div:before{
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    width: 0;
-    height: 0;
-    border-style: solid;
+#timeline div:before {
+	content: "";
+	position: absolute;
+	bottom: 5px;
+	width: 0;
+	height: 0;
+	border-style: solid;
 }
 
 /*Right Side Arrows*/
-#timeline ul li:nth-child(odd) div::before{
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent var(--secondary-color) transparent transparent;
+#timeline ul li:nth-child(odd) div::before {
+	left: -15px;
+	border-width: 8px 16px 8px 0;
+	border-color: transparent var(--secondary-color) transparent transparent;
 }
 
 /*Left Side Arrows*/
 #timeline ul li:nth-child(even) div::before {
-    right: -15px;
-    border-width: 8px 0px 8px 16px;
-    border-color: transparent transparent transparent var(--secondary-color);
+	right: -15px;
+	border-width: 8px 0px 8px 16px;
+	border-color: transparent transparent transparent var(--secondary-color);
+}
+
+/*Media Queries*/
+@media (max-width: 900px) {
+	#timeline ul li div {
+		width: 250px;
+	}
+
+	#timeline ul li:nth-child(even) div {
+		left: -284px;
+	}
+}
+
+@media (max-width: 600px) {
+	#timeline ul li {
+		margin-left: 20px;
+	}
+
+	#timeline ul li div {
+		width: calc(100vw - 90px);
+	}
+
+	#timeline ul li:nth-child(even) div {
+		left: 40px;
+	}
+
+	#timeline ul li:nth-child(even) div::before {
+		left: -15px;
+		border-width: 8px 16px 8px 0;
+		border-color: transparent var(--secondary-color) transparent transparent;
+	}
 }
